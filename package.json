@@ -3,6 +3,8 @@
   "version": "4.0.0",
   "description": "Watches a Discord message for a CS2 connect string and joins the server instantly",
   "author": "acided1",
+  "license": "MIT",
+  "repository": "github:acided/discord-cs-connector",
   "private": true,
   "main": "out/main/index.js",
   "scripts": {

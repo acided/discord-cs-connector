@@ -1,0 +1,10 @@
+node_modules/
+out/
+release/
+dist/
+
+# Local config with a Discord token — never commit it.
+config.json
+
+.idea/
+*.log

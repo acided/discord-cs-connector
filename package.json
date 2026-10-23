@@ -1,0 +1,43 @@
+{
+  "name": "cs2-autoconnect",
+  "version": "4.0.0",
+  "description": "Watches a Discord message for a CS2 connect string and joins the server instantly",
+  "author": "acided1",
+  "private": true,
+  "main": "out/main/index.js",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && electron .",
+    "typecheck": "tsc -p tsconfig.json && tsc -p src/renderer/tsconfig.json",
+    "test": "node scripts/build.mjs --test && node --test \"out/test/*.test.cjs\"",
+    "dist": "npm run typecheck && npm test && node scripts/build.mjs --prod && electron-builder --win"
+  },
+  "dependencies": {
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/ws": "^8.18.2",
+    "electron": "44.9.3",
+    "electron-builder": "^26.8.1",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  },
+  "build": {
+    "appId": "com.cs2autoconnect.app",
+    "productName": "CS2-AutoConnect",
+    "files": [
+      "out/main/**",
+      "out/preload/**",
+      "out/renderer/**",
+      "!**/*.map",
+      "package.json"
+    ],
+    "win": {
+      "target": "portable"
+    },
+    "directories": {
+      "output": "release"
+    }
+  }
+}

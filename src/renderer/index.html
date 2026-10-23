@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:"/>
+  <title>CS2 AutoConnect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<header id="titlebar">
+  <span class="title">◆ CS2 AUTOCONNECT</span>
+  <div class="window-controls">
+    <button class="window-btn" id="btn-minimize" title="Minimize">–</button>
+    <button class="window-btn close" id="btn-close" title="Close">✕</button>
+  </div>
+</header>
+
+<main id="app">
+
+  <section class="panel">
+    <div class="panel-header"><div class="dot"></div>CONFIG</div>
+    <div class="panel-body">
+      <label class="field">
+        <span class="field-label">DISCORD TOKEN</span>
+        <input type="password" id="input-token" placeholder="Paste user token here…" autocomplete="off"/>
+      </label>
+      <label class="field">
+        <span class="field-label">CHANNEL ID</span>
+        <input type="text" id="input-channel" placeholder="123456789012345678"/>
+      </label>
+      <label class="field">
+        <span class="field-label">NETCON PORT</span>
+        <input type="number" id="input-port" placeholder="2121" min="1" max="65535"/>
+      </label>
+      <div class="actions">
+        <button class="btn btn-ghost btn-accent" id="btn-save">💾 SAVE CONFIG</button>
+        <button class="btn btn-ghost" id="btn-config-folder">📁 CONFIG FOLDER</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-header"><div class="dot"></div>CONTROL</div>
+    <div class="panel-body">
+      <label class="field">
+        <span class="field-label">MESSAGE ID</span>
+        <span class="field-row">
+          <input type="text" id="input-message" placeholder="1234567890123456789"/>
+          <button class="btn btn-primary" id="btn-start" disabled>START</button>
+          <button class="btn btn-danger" id="btn-stop" disabled>STOP</button>
+        </span>
+      </label>
+      <div class="status-bar">
+        <div class="status-dot idle" id="monitor-dot"></div>
+        <span class="status-label">DISCORD</span>
+        <span id="monitor-text">Initializing…</span>
+      </div>
+      <div class="status-bar">
+        <div class="status-dot idle" id="netcon-dot"></div>
+        <span class="status-label">CS2 NETCON</span>
+        <span id="netcon-text">—</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel result-panel" id="result-panel" hidden>
+    <div class="panel-header"><div class="dot"></div>▼ TARGET ACQUIRED</div>
+    <div class="panel-body">
+      <div class="result-grid">
+        <div class="result-cell"><div class="result-label">HOST</div><div class="result-value" id="result-host">—</div></div>
+        <div class="result-cell"><div class="result-label">PORT</div><div class="result-value" id="result-port">—</div></div>
+        <div class="result-cell"><div class="result-label">PASSWORD</div><div class="result-value" id="result-password">—</div></div>
+        <div class="result-cell"><div class="result-label">DETECTED AFTER</div><div class="result-value" id="result-time">—</div></div>
+        <div class="result-cell wide"><div class="result-label">STEAM URL</div><div class="result-value" id="result-url">—</div></div>
+      </div>
+      <button class="launch-btn" id="btn-launch">▶ LAUNCH GAME NOW</button>
+    </div>
+  </section>
+
+  <section class="panel log-panel">
+    <div class="panel-header"><div class="dot"></div>SYSTEM LOG</div>
+    <div id="log"></div>
+  </section>
+
+  <footer id="footer"><span class="version" id="version">—</span></footer>
+</main>
+
+<script src="main.js"></script>
+</body>
+</html>
